@@ -1,0 +1,29 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("PSGR_URL")
+}
+
+model Book {
+  id              String      @id
+  title           String
+  author          String
+  publicationDate DateTime
+  genres          String
+}
+
+model User {
+  id                              String      @id
+  username                        String
+  passwordHash                    String
+  passwordSalt                    String
+  tokenCreationDate               DateTime
+  email                           String
+  emailConfirmationCode           String
+  emailIsConfirmed                Boolean
+  roles                           Int
+}
